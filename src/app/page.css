@@ -1,0 +1,111 @@
+/* src/app/page.css */
+/* 🌟 General Page Styling */
+.home {
+  text-align: center;
+  padding: 80px 20px;
+  background: linear-gradient(180deg, #f8fbff 0%, #e8f0ff 100%);
+  font-family: 'Poppins', sans-serif;
+  color: #1f2a44;
+}
+
+/* 🌟 Hero Section */
+.home .hero {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 80px 0 40px;
+}
+
+.home h1 {
+  color: #1e40af; /* Deep cool blue */
+  font-size: 42px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+}
+
+.home p {
+  font-size: 18px;
+  color: #4b5563;
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+/* 🌟 Features Section */
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  margin-top: 48px;
+  padding: 0 10px;
+}
+
+/* 🌟 Feature Cards */
+.card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  padding: 28px 20px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(30, 64, 175, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hover animation */
+.card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 15px 30px rgba(30, 64, 175, 0.2);
+}
+
+/* Cool blue underline animation */
+.card::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 80%;
+  height: 3px;
+  background: #1e40af;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.card:hover::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+/* Card Titles */
+.card h3 {
+  color: #1e40af;
+  font-size: 22px;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+/* Card Text */
+.card p {
+  font-size: 16px;
+  color: #374151;
+  line-height: 1.5;
+}
+
+/* 🌟 Responsive Design */
+@media (max-width: 900px) {
+  .home h1 {
+    font-size: 34px;
+  }
+  .home p {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .home {
+    padding: 60px 16px;
+  }
+  .card {
+    padding: 24px;
+  }
+}

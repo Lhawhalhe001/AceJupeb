@@ -1,0 +1,110 @@
+/* src/styles/admin.css */
+/* 🌟 Admin Page Base Style */
+.admin-page {
+  padding: 40px 20px;
+  background: linear-gradient(180deg, #f8fbff 0%, #e8f0ff 100%);
+  font-family: 'Poppins', sans-serif;
+  color: #1f2a44;
+  min-height: 100vh;
+}
+
+/* 🌟 Page Title */
+.admin-page h1 {
+  color: #1e40af; /* deep cool blue */
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 32px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* 🌟 Grid Layout */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+  padding: 0 10px;
+}
+
+/* 🌟 Admin Card Container */
+.admin-card {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(30, 64, 175, 0.1);
+  padding: 24px;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(30, 64, 175, 0.05);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hover Effect — Lift and Highlight */
+.admin-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 10px 25px rgba(30, 64, 175, 0.2);
+}
+
+/* Accent Line Animation (Cool Blue Glow) */
+.admin-card::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 80%;
+  height: 3px;
+  background: #1e40af;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.admin-card:hover::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+/* 🌟 Card Heading */
+.admin-card h2 {
+  color: #1e40af;
+  font-size: 20px;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+/* 🌟 Card Description / Text */
+.admin-card p {
+  color: #374151;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+/* 🌟 Buttons inside Admin Card */
+.admin-card button {
+  margin-top: 16px;
+  background-color: #1e40af;
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.admin-card button:hover {
+  background-color: #2563eb;
+  transform: scale(1.05);
+}
+
+/* 🌟 Responsive Design */
+@media (max-width: 900px) {
+  .admin-page h1 {
+    font-size: 26px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
