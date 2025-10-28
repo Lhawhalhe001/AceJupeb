@@ -30,7 +30,7 @@ export default function HomePage() {
     <main className="container home">
       {/* 🟦 HERO SECTION */}
       <section className="hero">
-        <h1>Ace Jupeb Learning Portal</h1>
+        <h1>Ace Jupeb Learning Aid</h1>
         <p>
           Prepare for JUPEB — notes, quizzes, and past questions for
           Mathematics, Physics, Chemistry & Biology.
