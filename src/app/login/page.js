@@ -37,20 +37,36 @@ export default function LoginPage() {
       <div className="login-card">
         <h2>{isAdmin ? "Admin Login" : "Student Login"}</h2>
         <form onSubmit={submit}>
-          <label>Email or ID</label>
-          <input value={identifier} onChange={(e) => setIdentifier(e.target.value)} placeholder={isAdmin ? 'admin@domain.com' : 'student@example.com'} required />
+          <label>FullName</label>
+          <input
+            value={identifier}
+            onChange={(e) => setIdentifier(e.target.value)}
+            placeholder={isAdmin ? "AceJupeb Admin......." : "AxeJupeb student"}
+            required
+          />
 
           <label>Password or Access Code</label>
-          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
 
           <button type="submit">{loading ? "Checking..." : "Login"}</button>
         </form>
 
-        <p className="switch">{isAdmin ? "Login as a Student?" : "Login as an Admin?"}
-          <span onClick={() => setIsAdmin(!isAdmin)} className="switch-link"> Click here</span>
+        <p className="switch">
+          {isAdmin ? "Login as a Student?" : "Login as an Admin?"}
+          <span onClick={() => setIsAdmin(!isAdmin)} className="switch-link">
+            {" "}
+            Click here
+          </span>
         </p>
 
-        <p style={{ marginTop: 10 }}>No account? Ask your admin to generate an access code.</p>
+        <p style={{ marginTop: 10 }}>
+          No account? Ask your admin to generate an access code.
+        </p>
       </div>
     </div>
   );
