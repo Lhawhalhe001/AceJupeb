@@ -41,7 +41,7 @@ export default function LoginPage() {
           <input
             value={identifier}
             onChange={(e) => setIdentifier(e.target.value)}
-            placeholder={isAdmin ? "AceJupeb Admin......." : "AxeJupeb student"}
+            placeholder={isAdmin ? "AceJupeb Admin......." : "AceJupeb student....."}
             required
           />
 
