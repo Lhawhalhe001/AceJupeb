@@ -36,7 +36,9 @@ export default function HomePage() {
           Mathematics, Physics, Chemistry & Biology.
         </p>
         <div className="cta">
-          <Link href="/login"><button>Login</button></Link>
+          <Link href="/login">
+            <button>Login</button>
+          </Link>
         </div>
       </section>
 
@@ -58,12 +60,24 @@ export default function HomePage() {
         <div className="payment-box">
           <h3>Payment Details</h3>
           <ul>
-            <li><strong>Account Name:</strong> Ace Jupeb Academy</li>
-            <li><strong>Bank Name:</strong> Access Bank</li>
-            <li><strong>Account Number:</strong> 0812345678</li>
-            <li><strong>Amount:</strong> ₦5,000 (Access Code Fee)</li>
-            <li><strong>Contact:</strong> +234 812 345 6789 (WhatsApp)</li>
-            <li><strong>Email:</strong> support@acejupeb.com</li>
+            <li>
+              <strong>Account Name:</strong> Ace Jupeb Academy
+            </li>
+            <li>
+              <strong>Bank Name:</strong> Access Bank
+            </li>
+            <li>
+              <strong>Account Number:</strong> 0812345678
+            </li>
+            <li>
+              <strong>Amount:</strong> ₦3,000 (Access Code Fee)
+            </li>
+            <li>
+              <strong>Contact:</strong> +234 812 345 6789 (WhatsApp)
+            </li>
+            <li>
+              <strong>Email:</strong> support@acejupeb.com
+            </li>
           </ul>
 
           <div className="upload-note">
