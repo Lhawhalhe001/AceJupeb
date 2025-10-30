@@ -283,6 +283,7 @@ export default function AdminDashboard() {
               <option>Physics</option>
               <option>Chemistry</option>
               <option>Math</option>
+              <option>Biology</option>
             </select>
             <input
               type="text"
@@ -319,6 +320,7 @@ export default function AdminDashboard() {
               <option>Physics</option>
               <option>Chemistry</option>
               <option>Math</option>
+              <option>Biology</option>
             </select>
             <input
               type="text"
@@ -361,6 +363,7 @@ export default function AdminDashboard() {
               <option>Physics</option>
               <option>Chemistry</option>
               <option>Math</option>
+              <option>Biology</option>
             </select>
 
             <input
