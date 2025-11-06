@@ -22,14 +22,27 @@ export default function LoginPage() {
     // const endpoint = isAdmin ? 'auth/admin-login' : 'auth/student-login';
     // const res = await postData(endpoint, { identifier, password });
     // if (res && res.token) { localStorage.setItem('token', res.token); if (isAdmin) router.push('/admin'); else router.push('/student'); }
-    // ------------------------------
+    
+const BASE_URL = "http://localhost:5000/api";
+
+const endpoint = isAdmin
+  ? `${BASE_URL}/admin/login`
+  : `${BASE_URL}/student/login`;
+
+const res = await postData(endpoint, { identifier, password });
+
+if (res && res.token) {
+  localStorage.setItem('token', res.token);
+  if (isAdmin) router.push('/admin');
+  else router.push('/student');
+}
 
     // For now: local simulation
-    setTimeout(() => {
-      setLoading(false);
-      if (isAdmin) window.location.href = "/admin";
-      else window.location.href = "/student";
-    }, 700);
+    // setTimeout(() => {
+    //   setLoading(false);
+    //   if (isAdmin) window.location.href = "/admin";
+    //   else window.location.href = "/student";
+    // }, 700);
   };
 
   return (

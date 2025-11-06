@@ -11,14 +11,14 @@ export default function PastQuestionsPage() {
   useEffect(() => {
     async function load() {
       // Example API call when backend exists:
-      // const res = await fetchData('past-questions');
-      // setItems(res);
+      const res = await fetchData('past-questions');
+      setItems(res);
 
       // demo
-      setItems({
-        Mathematics: [{ id: 1, title: 'Jupeb Math 2020', url: '/past/jupeb-math-2020.pdf' }],
-        Physics: [{ id: 2, title: 'Jupeb Physics 2019', url: '/past/jupeb-phy-2019.pdf' }],
-      });
+      // setItems({
+      //   Mathematics: [{ id: 1, title: 'Jupeb Math 2020', url: '/past/jupeb-math-2020.pdf' }],
+      //   Physics: [{ id: 2, title: 'Jupeb Physics 2019', url: '/past/jupeb-phy-2019.pdf' }],
+      // });
     }
     load();
   }, []);

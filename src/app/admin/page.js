@@ -103,7 +103,7 @@ import Navbar from "../../components/Navbar";
 import "../../styles/admin.css";
 
 export default function AdminDashboard() {
-  const BASE_URL = "http://localhost:5000/api"; // 🔧 change to your backend base URL
+  const BASE_URL = "https://ace-jupeb.onrender.com/api"; // 🔧 change to your backend base URL
   const [message, setMessage] = useState("");
 
   // ------------------ STATES ------------------
@@ -128,7 +128,7 @@ export default function AdminDashboard() {
   const handleGenerateCode = async () => {
     try {
       setMessage("Generating...");
-      const res = await fetch(`${BASE_URL}/generate-codes`, {
+      const res = await fetch(`${BASE_URL}/admin/generate-codes`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ count: Number(codeCount) }),
@@ -147,27 +147,75 @@ export default function AdminDashboard() {
   };
 
   // ------------------ CREATE NOTE ------------------
-  const handleCreateNote = async () => {
-    try {
-      setMessage("Uploading note...");
-      const res = await fetch(`${BASE_URL}/createNote`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ subject, topic, body }),
-      });
-      const data = await res.json();
-      if (res.ok) {
-        setNotes((prev) => [...prev, data.note]);
-        setMessage("✅ Note created successfully!");
-        setTopic("");
-        setBody("");
-      } else {
-        setMessage(data.message || "Failed to create note.");
-      }
-    } catch (err) {
-      setMessage("⚠️ Error uploading note.");
+//   const handleCreateNote = async () => {
+//   try {
+//     if (!subject || !topic || !body) {
+//       setMessage("⚠️ Please fill in all fields!");
+//       return;
+//     }
+
+//     setMessage("Uploading note...");
+
+//     const res = await fetch(`${BASE_URL}/student/notes/createNote`, {
+//       method: "POST",
+//       headers: { "Content-Type": "application/json" },
+//       body: JSON.stringify({ subject, topic, body }),
+//     });
+
+//     const data = await res.json();
+
+//     if (res.ok) {
+//       setNotes((prev) => [...prev, data.note]);
+//       setMessage("✅ Note created successfully!");
+//       setTopic("");
+//       setBody("");
+//     } else {
+//       setMessage(data.message || "❌ Failed to create note.");
+//     }
+//   } catch (err) {
+//     console.error("Error uploading note:", err);
+//     setMessage("⚠️ Error connecting to backend.");
+//   }
+// };
+
+// ------------------ CREATE NOTE ------------------
+const handleCreateNote = async () => {
+  try {
+    if (!subject || !topic || !body) {
+      setMessage("⚠️ Please fill in all fields!");
+      return;
     }
-  };
+
+    setMessage("Uploading note...");
+
+    const res = await fetch(`${BASE_URL}/student/notes/createNote`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ subject, topic, body }),
+    });
+
+    // 🔥 FIX: Check if response is HTML instead of JSON
+    const text = await res.text();
+    let data;
+    try {
+      data = JSON.parse(text);
+    } catch {
+      throw new Error(`Invalid JSON: ${text.substring(0, 100)}`);
+    }
+
+    if (res.ok) {
+      setNotes((prev) => [...prev, data.note]);
+      setMessage("✅ Note created successfully!");
+      setTopic("");
+      setBody("");
+    } else {
+      setMessage(data.message || "❌ Failed to create note.");
+    }
+  } catch (err) {
+    console.error("Error uploading note:", err);
+    setMessage("⚠️ Error connecting to backend.");
+  }
+};
 
   // ------------------ DELETE NOTE ------------------
   const handleDeleteNote = async (id) => {

@@ -2,7 +2,7 @@
 // Reusable API helper functions. Replace BASE_URL with your backend API base URL.
 
 // TODO: Replace this with your backend URL when it's ready
-export const BASE_URL = "http://localhost:5000/api"; // <-- replace this with your backend URL
+export const BASE_URL = "https://ace-jupeb.onrender.com/api"; 
 
 // Fetch GET request helper
 export async function fetchData(endpoint) {
