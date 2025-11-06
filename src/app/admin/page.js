@@ -209,7 +209,7 @@ const handleCreateNote = async () => {
       setTopic("");
       setBody("");
     } else {
-      setMessage(data.message || "❌ Failed to create note.");
+      setMessage(data.message || " Failed to create note.");
     }
   } catch (err) {
     console.error("Error uploading note:", err);
@@ -231,7 +231,7 @@ const handleCreateNote = async () => {
         setMessage(data.message || "Failed to delete note.");
       }
     } catch (err) {
-      setMessage("⚠️ Error deleting note.");
+      setMessage("⚠️ Error deleting notee.");
     }
   };
 
